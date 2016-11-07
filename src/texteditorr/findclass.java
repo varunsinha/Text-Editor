@@ -6,6 +6,7 @@
 package texteditorr;
 
 import java.awt.Color;
+import javax.swing.event.CaretListener;
 
 import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Document;
@@ -19,7 +20,7 @@ import static texteditorr.TextEditorFrame.textarea;
  * @author varun
  */
 public class findclass extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form findclass
      */
@@ -37,7 +38,7 @@ public class findclass extends javax.swing.JFrame {
     
       }
    
-        Highlighter.HighlightPainter highlightpainter= new highlighter(Color.blue);
+        Highlighter.HighlightPainter highlightpainter= new highlighter(Color.cyan);
         
         public void removehighlight(JTextComponent textcomp){
         Highlighter hilite = textcomp.getHighlighter();
@@ -85,13 +86,12 @@ public class findclass extends javax.swing.JFrame {
         findwhat = new javax.swing.JTextField();
         findnext = new javax.swing.JButton();
         cancelbtn = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Find What:");
 
-        findnext.setText("Find Next");
+        findnext.setText("Find ");
         findnext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 findnextActionPerformed(evt);
@@ -105,29 +105,20 @@ public class findclass extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox1.setText("Match Case");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(findwhat, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cancelbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(findnext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,20 +130,16 @@ public class findclass extends javax.swing.JFrame {
                     .addComponent(findnext))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cancelbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jCheckBox1)
-                .addGap(22, 22, 22))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
     private void cancelbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelbtnActionPerformed
-    this.dispose();        // TODO add your handling code here:
+       
+    
+    this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_cancelbtnActionPerformed
 
     private void findnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findnextActionPerformed
@@ -200,7 +187,6 @@ public class findclass extends javax.swing.JFrame {
     private javax.swing.JButton cancelbtn;
     private javax.swing.JButton findnext;
     private javax.swing.JTextField findwhat;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
