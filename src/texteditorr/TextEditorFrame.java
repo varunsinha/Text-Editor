@@ -6,9 +6,11 @@
  */
 package texteditorr;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -42,7 +44,12 @@ public class TextEditorFrame extends javax.swing.JFrame {
                 });
     }
     
-            
+   /* private void save(String Filename){
+    setTitle(Filename);
+    try{
+        FileWriter.out=new FileWriter;
+    }
+    }*/        
         
     
     
@@ -76,6 +83,9 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jToolBar9 = new javax.swing.JToolBar();
         jLabel6 = new javax.swing.JLabel();
+        jToolBar10 = new javax.swing.JToolBar();
+        jLabel7 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         NewButton = new javax.swing.JMenuItem();
@@ -121,12 +131,17 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jToolBar1.setRollover(true);
 
         jToolBar2.setRollover(true);
-        jToolBar2.setMaximumSize(new java.awt.Dimension(49, 35));
+        jToolBar2.setMaximumSize(new java.awt.Dimension(15, 15));
 
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\new.png")); // NOI18N
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -141,6 +156,11 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setMaximumSize(new java.awt.Dimension(59, 35));
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+        });
         jButton2.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 jButton2ComponentHidden(evt);
@@ -168,6 +188,9 @@ public class TextEditorFrame extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
+            }
         });
         jToolBar4.add(jLabel1);
 
@@ -178,6 +201,9 @@ public class TextEditorFrame extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
         });
         jToolBar5.add(jLabel2);
 
@@ -187,6 +213,9 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
             }
         });
         jToolBar6.add(jLabel3);
@@ -203,6 +232,9 @@ public class TextEditorFrame extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel4MouseEntered(evt);
+            }
         });
         jToolBar7.add(jLabel4);
 
@@ -212,6 +244,9 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel5MouseEntered(evt);
             }
         });
         jToolBar8.add(jLabel5);
@@ -223,8 +258,28 @@ public class TextEditorFrame extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
+            }
         });
         jToolBar9.add(jLabel6);
+
+        jToolBar10.setRollover(true);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\undo1.png")); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel7MouseEntered(evt);
+            }
+        });
+        jToolBar10.add(jLabel7);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Arial", "Serif", "Times New Roman", "Verdana", "Copperplate" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -236,6 +291,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         });
 
         NewButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        NewButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\new.png")); // NOI18N
         NewButton.setText("New");
         NewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,6 +301,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jMenu1.add(NewButton);
 
         OpenButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        OpenButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\open.jpeg")); // NOI18N
         OpenButton.setText("Open");
         OpenButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,6 +311,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jMenu1.add(OpenButton);
 
         SaveButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        SaveButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\save.png")); // NOI18N
         SaveButton.setText("Save");
         SaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,6 +320,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         });
         jMenu1.add(SaveButton);
 
+        SaveAsButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\saveas.png")); // NOI18N
         SaveAsButton.setText("Save As..");
         SaveAsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,6 +331,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jMenu1.add(jSeparator2);
 
         PrintButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        PrintButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\print1.png")); // NOI18N
         PrintButton.setText("Print");
         jMenu1.add(PrintButton);
 
@@ -284,6 +344,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jMenu1.add(PageSetupButton);
         jMenu1.add(jSeparator3);
 
+        ExitButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\exit.png")); // NOI18N
         ExitButton.setText("Exit");
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,6 +368,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jMenu2.add(CutButton);
 
         CopyButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        CopyButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\copy.jpeg")); // NOI18N
         CopyButton.setText("Copy");
         CopyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,6 +378,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jMenu2.add(CopyButton);
 
         PasteButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
+        PasteButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\paste.jpeg")); // NOI18N
         PasteButton.setText("Paste");
         PasteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,6 +388,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jMenu2.add(PasteButton);
 
         DeleteButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_DELETE, 0));
+        DeleteButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\delete1.png")); // NOI18N
         DeleteButton.setText("Delete");
         DeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -335,6 +399,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jMenu2.add(jSeparator4);
 
         UndoButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
+        UndoButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\undo1.png")); // NOI18N
         UndoButton.setText("Undo");
         UndoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,6 +410,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jMenu2.add(jSeparator5);
 
         FindButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        FindButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\find.png")); // NOI18N
         FindButton.setText("Find");
         FindButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -354,6 +420,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jMenu2.add(FindButton);
 
         ReplaceButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        ReplaceButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\replace5.png")); // NOI18N
         ReplaceButton.setText("Replace");
         ReplaceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -363,6 +430,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         jMenu2.add(ReplaceButton);
 
         SelectAllButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        SelectAllButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\edit_select_all1.png")); // NOI18N
         SelectAllButton.setText("Select All");
         SelectAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -390,6 +458,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
 
         ViewHelpButton.setText("Help");
 
+        jMenuItem17.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\help1.png")); // NOI18N
         jMenuItem17.setText("View Help");
         jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -399,6 +468,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
         ViewHelpButton.add(jMenuItem17);
         ViewHelpButton.add(jSeparator6);
 
+        AboutButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\varun\\Desktop\\index1.png")); // NOI18N
         AboutButton.setText("About Notepad");
         AboutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -416,42 +486,49 @@ public class TextEditorFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jToolBar3, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar4, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar5, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar6, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar7, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar8, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar8, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar9, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToolBar9, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToolBar10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(2, 2, 2)
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 305, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
             .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToolBar3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToolBar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToolBar5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToolBar6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToolBar7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToolBar8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToolBar10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToolBar9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToolBar8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToolBar7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToolBar6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToolBar5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToolBar4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jToolBar9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                            .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -460,7 +537,10 @@ public class TextEditorFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
-   
+       
+       
+       
+        
         
         // TODO add your handling code here:
     }//GEN-LAST:event_SaveButtonActionPerformed
@@ -479,8 +559,8 @@ public class TextEditorFrame extends javax.swing.JFrame {
         if(chooservalue==JFileChooser.APPROVE_OPTION){
             try {
                 Scanner fin= new Scanner(chooser.getSelectedFile());
-                String buffer = " ";
-                while(fin.hasNext()){
+                String buffer = " ";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                 while(fin.hasNext()){
                     buffer += fin.nextLine()+ "\n";
                 }
                 textarea.setText(buffer);
@@ -504,14 +584,15 @@ public class TextEditorFrame extends javax.swing.JFrame {
     private void SaveAsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveAsButtonActionPerformed
     JFileChooser chooser = new JFileChooser();
         int chooservalue = chooser.showSaveDialog(this);
-        filePath = chooser.getSelectedFile().getAbsolutePath();
-        fileName = chooser.getSelectedFile().getName();
+        
         if(chooservalue == JFileChooser.APPROVE_OPTION){
             try {
                 try (PrintWriter fout = new PrintWriter(chooser.getSelectedFile())) {
                     fout.print(textarea.getText());
                 }
-               
+                filePath = chooser.getSelectedFile().getAbsolutePath();
+                fileName = chooser.getSelectedFile().getName();
+               System.out.println(" hello "+fileName+""+filePath); 
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(TextEditorFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -575,6 +656,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        jButton1.setToolTipText("New");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -639,6 +721,72 @@ public class TextEditorFrame extends javax.swing.JFrame {
         rc.setVisible(true);   // TODO add your handling code here:
     }//GEN-LAST:event_jLabel6MouseClicked
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        String font = (String)jComboBox1.getSelectedItem();
+        //System.out.println(font);
+        
+        switch(font){
+            case "Arial":  textarea.setFont(new Font("Arial", Font.BOLD, 15));
+                break;
+            case "Times New Roman":  textarea.setFont(new Font("Times New Roman", Font.BOLD, 15));
+                break;
+            case "Copperplate":  textarea.setFont(new Font("Copperplate", Font.ITALIC, 15));
+                break;
+            case "Serif":  textarea.setFont(new Font("Serif", Font.BOLD, 15));
+                break;
+            case "Verdana":  textarea.setFont(new Font("Verdana", Font.BOLD, 15));
+                break;
+            default :  textarea.setFont(new Font("Arial", Font.BOLD, 15));
+
+        }
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+    jButton1.setToolTipText("New");        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        // TODO add your handling code here:
+            jButton2.setToolTipText("Open");        
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+        // TODO add your handling code here:
+        jLabel1.setToolTipText("Save");
+    }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+        // TODO add your handling code here:
+                jLabel2.setToolTipText("Copy");
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        // TODO add your handling code here:
+                jLabel3.setToolTipText("Paste");
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+        // TODO add your handling code here:    
+        jLabel4.setToolTipText("Cut");       
+    }//GEN-LAST:event_jLabel4MouseEntered
+
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+        // TODO add your handling code here:
+                jLabel5.setToolTipText("Find");
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
+        // TODO add your handling code here:
+        jLabel6.setToolTipText("Select All");
+    }//GEN-LAST:event_jLabel6MouseEntered
+
+    private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
+        // TODO add your handling code here:
+        jLabel7.setToolTipText("Undo");
+    }//GEN-LAST:event_jLabel7MouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -697,12 +845,14 @@ public class TextEditorFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -716,6 +866,7 @@ public class TextEditorFrame extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JToolBar jToolBar10;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JToolBar jToolBar3;
     private javax.swing.JToolBar jToolBar4;
